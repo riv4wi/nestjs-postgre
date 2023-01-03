@@ -18,7 +18,7 @@ export class TasksService {
     }
 
     findOne(id: number) {
-        return this.tasksRepository.findOne(id);
+        return this.tasksRepository.findOne({where:{id}});
     }
 
     // aca puedo usar un dto como validación de datos y tipado
@@ -34,7 +34,7 @@ export class TasksService {
     }
 
     async update(id: number, body: any) {
-        const task = await this.tasksRepository.findOne(id);
+        const task = await this.tasksRepository.findOne({where:{id}});
         this.tasksRepository.merge(task, body);
         return this.tasksRepository.save(task);
     }
