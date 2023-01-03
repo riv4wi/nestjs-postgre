@@ -1,0 +1,17 @@
+version: "3.5"
+
+services:
+  postgres:
+    container_name: postgres_container
+    image: postgres
+
+    environment:
+      POSTGRES_DB: integramed_bo
+      POSTGRES_USER: riv4wi
+      POSTGRES_PASSWORD: 1234
+        
+    ports:
+      ["5432:5432"]
+
+    volumes:
+      ["./postgres_data:/var/lib/postgresgl"]
